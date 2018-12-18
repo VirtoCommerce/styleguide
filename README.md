@@ -16,7 +16,7 @@ originated at Virto Commerce, you may be pointed to this page to see the style g
 that apply to that project.
 
 This project holds: 
-* [C# CODING CONVENTIONS](csharp)
+* [C# CODING CONVENTIONS](csharp.md)
 
 ## Style vocabulary
 
