@@ -36,7 +36,8 @@ Like a spell checker, SonarLint squiggles flaws so that they can be fixed before
 
 [Install SonarLint in Visual Studio](https://marketplace.visualstudio.com/items?itemName=SonarSource.SonarLintforVisualStudio2017)
 
-[List of C# rules](https://rules.sonarsource.com/csharp)
+[List of C# rules](https://rules.sonarsource.com/csharp)
+
 ### Use Visual Studio Code Analyzes
 We recommend to use  use the Microsoft Rules rule set to focus on the most critical problems in your code, including potential security holes, application crashes, and other important logic and design errors. 
 
@@ -110,6 +111,7 @@ if (isActive && GetSomeValue() > 0)
 **Do** Compare IDs and SKUs with EqualsInvariant()
 
 
+## Templates
 ### Descirbe Custom rule name
 **Do** describe custom rule name.
 
@@ -127,6 +129,7 @@ if (isActive && GetSomeValue() > 0)
 
 
 
-
+
+
 
 
