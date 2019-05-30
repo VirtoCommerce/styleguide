@@ -1,4 +1,5 @@
 # Virto Commerce Style Guides
+
 The Virto Commerce style guide includes documentation on design, branding, and code implementation.
 
 Every major open-source project has its own style guide: a set of conventions
@@ -7,16 +8,18 @@ easier to understand a large codebase when all the code in it is in a
 consistent style.
 
 “Style” covers a lot of ground, from “use camelCase for variable names” to
-“never use global variables” to “never use exceptions.” 
+“never use global variables” to “never use exceptions.”
 
-This project 
+This project
 ([VirtoCommerce/styleguide](https://github.com/VirtoCommerce/styleguide)) links to the
 style guidelines we use for Virto Commerce code. If you are modifying a project that
 originated at Virto Commerce, you may be pointed to this page to see the style guides
 that apply to that project.
 
-This project holds: 
+This project holds:
+
 * [C# CODING CONVENTIONS](csharp.md)
+* [DOCS WRITING CONVENTIONS](docs.md)
 
 ## Style vocabulary
 
@@ -33,4 +36,3 @@ The wording of each guideline indicates how strong the recommendation is.
 **Do not** Just don't do it.
 
 **Why?** gives reasons for following the previous recommendations.
-
