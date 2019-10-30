@@ -558,7 +558,7 @@ Naming conventions are hugely important to maintainability and readability. This
 ### Testing
 
 <details>
-	<summary><b>Use Assert.Equal(expected, actual</b></summary>
+	<summary><b>Use Assert.Equal</b></summary>
    **Do** Use Assert.Equal(expected, actual) instead of Assert.True(actual == expected)
 </details>
 
