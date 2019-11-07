@@ -509,90 +509,81 @@ var criteria = new SearchCriteria
 ### Testing
 
 <details>
-	<summary><b>Use Assert.Equal</b></summary>
-   **Do** Use Assert.Equal(expected, actual) instead of Assert.True(actual == expected)
+    <summary><b>Use Assert.Equal</b></summary>
+
+**Do** Use `Assert.Equal(expected, actual)` instead of `Assert.True(actual == expected)`.
 </details>
 
 ### Virto Commerce
 <details>
-	<summary><b>Custom modules must use the same versions of NuGet packages as in platform or in VC modules.</b></summary>
-   
-  **Do** Custom modules must use the same versions of NuGet packages as in platform or in VC modules.
+    <summary><b>Custom modules must use the same versions of NuGet packages as in platform or in VC modules</b></summary>
+
+**Do** Custom modules must use the same versions of NuGet packages as in platform or in VC modules.
+</details>
+
+<details>
+    <summary><b>module.manifest should contain the same dependencies as packages.config</b></summary>
+
+**Do** module.manifest should contain the same dependencies as packages.config.
+</details>
+
+<details>
+    <summary><b>Web.config and app.config in modules should contain only the assemblyBinding section</b></summary>
+
+**Do** Web.config and app.config in modules should contain only the assemblyBinding section
+</details>
+
+<details>
+    <summary><b>`bin` directroy of the module.zip should not contain files that exist in platform or in dependencies</b></summary>
+
+**Do** `bin` directroy of the module.zip should not contain files that exist in platform or in dependencies. Use `module.ignore` to exclude them from the ZIP.
+</details>
+
+<details>
+    <summary><b>All API actions should have [CheckPermission] attribute</b></summary>
+
+**Do** All API actions should have `[CheckPermission]` attribute.
+
+**Good**
+
+```csharp
+[CheckPermission(Permission = ThumbnailPredefinedPermissions.Create)]
+public IHttpActionResult Create(ThumbnailOption option)
+{
+    _thumbnailOptionService.SaveOrUpdate(new[] { option });
+    return Ok(option);
+}
+```
+</details>
+
+<details>
+    <summary><b>Compare IDs and SKUs with `EqualsInvariant()`</b></summary>
+
+**Do** Compare IDs and SKUs with `EqualsInvariant()`.
 
 </details>
 
 <details>
-	<summary><b>Compare IDs and SKUs with EqualsInvariant()</b></summary>
-   
-  **Do** Compare IDs and SKUs with EqualsInvariant()
+    <summary><b>Don't call `repository.GetByIds(ids)` if `ids` is empty</b></summary>
 
-</details>
-
-<details>
-	<summary><b>module.manifest should contain the same dependencies as packages.config</b></summary>
-   
-  **Do** module.manifest should contain the same dependencies as packages.config.
-
-</details>
-
-<details>
-	<summary><b>All API actions should have [CheckPermission] attribute.</b></summary>
-   
-  **Do** All API actions should have [CheckPermission] attribute.
-   
-   **Good**
-   
-   ```csharp
-   [CheckPermission(Permission = ThumbnailPredefinedPermissions.Create)]
-   public IHttpActionResult Create(ThumbnailOption option)
-   {
-      _thumbnailOptionService.SaveOrUpdate(new[] { option });
-   return Ok(option);
-   }
-   ```
-
-</details>
-
-<details>
-	<summary><b>Web.config and app.config in modules should contain only the assemblyBinding section</b></summary>
-   
-  **Do** Web.config and app.config in modules should contain only the assemblyBinding section
-</details>
-
-<details>
-	<summary><b>bin directroy of the module.zip should not contain files that present in platform or in dependencies</b></summary>
-   
-  **Do** bin directroy of the module.zip should not contain files that present in platform or in dependencies. Use module.ignore to exclude them from the ZIP.
-</details>
-
-<details>
-	<summary><b>Don't call repository.GetByIds(ids) if ids is empty</b></summary>
-   
-  **Don't** call repository.GetByIds(ids) if ids is empty.
+**Don't** call `repository.GetByIds(ids)` if `ids` is empty.
 </details>
 
 ## Templates
 <details>
-	<summary><b>Summary Details Templates</b></summary>
-   
-   **Do** More Details Templates
-   
-   **Bad**
-   
-   ```csharp
-   BAD CODE HERE 
-   ```
-   
-   **Good**
-   
-   ```csharp
-   GOOD CODE HERE
-   ```
+    <summary><b>Short description</b></summary>
+
+**Do** Long description
+
+**Bad**
+
+```csharp
+// Bad code example
+```
+
+**Good**
+
+```csharp
+// Good code example
+```
 </details>
-
-
-
-
-
-
-
