@@ -329,57 +329,54 @@ fulfillment-centers
 
 ### Formatting
 <details>
-	<summary><b>Your text editor must support .editorconfig</b></summary>
-   
-  **Do** Your text editor must support .editorconfig.
+    <summary><b>Your text editor must support .editorconfig</b></summary>
 
+**Do** Your text editor must support .editorconfig.
 </details>
 
 <details>
-	<summary><b>Automatically format documents when saving</b></summary>
-   
-  **Do** Automatically format documents when saving
-   
-   1. Install PowerCommandsforVisualStudio
-   1. Go to Tools > Options > Productivity Power Tools > PowerCommands
-   1. Enable Format documents on save and Remove and Sort Usings on save
+    <summary><b>Automatically format documents when saving</b></summary>
 
+**Do** Automatically format documents when saving:
+
+1. Install PowerCommandsforVisualStudio
+1. Go to Tools > Options > Productivity Power Tools > PowerCommands
+1. Enable Format documents on save and Remove and Sort Usings on save
 </details>
 
 <details>
-	<summary><b>Place `System` directives first when sorting usings</b></summary>
-   
-   **Do** Place `System` directives first when sorting usings
-   
-   **Bad**
-   
-   ```csharp
-   using Nest;
-   using VirtoCommerce.Domain.Search
-   using System.Globalization;
-   ```
-   
-   **Good**
-   
-   ```csharp
-   using System.Globalization;
-   using Nest;
-   using VirtoCommerce.Domain.Search
-   ```
+    <summary><b>Place `System` directives first when sorting usings</b></summary>
+
+**Do** Place `System` directives first when sorting usings
+
+**Bad**
+
+```csharp
+using Nest;
+using VirtoCommerce.Domain.Search
+using System.Globalization;
+```
+
+**Good**
+
+```csharp
+using System.Globalization;
+using Nest;
+using VirtoCommerce.Domain.Search
+```
 </details>
 
 <details>
-	<summary><b>Whitespaces at the end of the line are not allowed</b></summary>
-   
-  **Don't** Whitespaces at the end of the line are not allowed.
+    <summary><b>Whitespaces at the end of the line are not allowed</b></summary>
 
+**Don't** Whitespaces at the end of the line are not allowed.
 </details>
 
 <details>
-	<summary><b>Use the following order of members in a class</b></summary>
-   
-   **Consider** Use the following order of members in a class:
-   
+    <summary><b>Use the following order of members in a class</b></summary>
+
+**Consider** Use the following order of members in a class:
+
 1. constants
 1. private fields
 1. constructors
@@ -388,135 +385,125 @@ fulfillment-centers
 1. public methods
 1. protected methods
 1. private methods
-
 </details>
 
 <details>
-	<summary><b>Use two empty lines to separate public, protected and private method blocks from each other</b></summary>
-   
-   **Do** Use two empty lines to separate public, protected and private method blocks from each other.
+    <summary><b>Use two empty lines to separate public, protected and private method blocks from each other</b></summary>
 
-</details>
- 
-<details>
-	<summary><b>Bodies of if, for, etc. should be enclosed in braces</b></summary>
-   
-   **Do** Bodies of if, for, etc. should be enclosed in braces.
-
-</details>
- 
-<details>
-	<summary><b>Bodies of if, for, etc. should be enclosed in braces</b></summary>
-   
-   **Do** Bodies of if, for, etc. should be enclosed in braces.
-
+**Do** Use two empty lines to separate public, protected and private method blocks from each other.
 </details>
 
 <details>
-	<summary><b>Multi-line blocks of code should be separated with empty line from other code.</b></summary>
-   
-   **Do** Multi-line blocks of code should be separated with empty line from other code.
+    <summary><b>Bodies of if, for, etc. should be enclosed in braces</b></summary>
 
+**Do** Bodies of `if`, `for`, etc. should be enclosed in braces.
 </details>
 
 <details>
-	<summary><b>Separate return at the end of the method with empty line from other code</b></summary>
-   
-   **Do** Separate return at the end of the method with empty line from other code.
+	<summary><b>Multi-line blocks of code should be separated with empty line from other code</b></summary>
 
+**Do** Multi-line blocks of code should be separated with empty line from other code.
 </details>
 
 <details>
-	<summary><b>Don't put condition and action on one line.</b></summary>
-   
-   **Don't** put condition and action on one line.
+    <summary><b>Separate `return` at the end of the method with empty line from other code</b></summary>
 
+**Do** Separate return at the end of the method with empty line from other code.
 </details>
 
 <details>
-	<summary><b>Don't break the line if it does not exceed 170 characters.</b></summary>
-   
-   **Don't** break the line if it does not exceed 170 characters.
+    <summary><b>Don't put condition and action on one line</b></summary>
+
+**Don't** put condition and action on one line.
 </details>
 
 <details>
-	<summary><b>Break complex (hard to read) LINQ expressions into multiple lines</b></summary>
-   
-   **Do** Break complex (hard to read) LINQ expressions into multiple lines
+    <summary><b>Avoid breaking the line if it does not exceed 170 characters</b></summary>
 
-   **Good**
-   
-   ```csharp
-   var names = repository.Items
+**Avoid** breaking the line if it does not exceed 170 characters.
+</details>
+
+<details>
+    <summary><b>Break complex (hard to read) LINQ expressions into multiple lines</b></summary>
+
+**Do** Break complex (hard to read) LINQ expressions into multiple lines
+
+**Good**
+
+```csharp
+var names = repository.Items
     .Where(x => x.IsActive && ids.Contains(x.Id)
     .Select(x => x.Name)
     .ToArray();
-   ```
+```
 </details>
 
 <details>
-	<summary><b>Put where on a separate line</b></summary>
-   
-   **Do** Put where on a separate line
+    <summary><b>Put `where` on a separate line</b></summary>
 
-   **Good**
-   
-   ```csharp
-   public void Parse<T>(string input)
-      where T: new()
-   ```
+**Do** Put `where` on a separate line
+
+**Good**
+```csharp
+public void Parse<T>(string input)
+    where T: new()
+```
 </details>
 
 <details>
-	<summary><b>Put a call to base or this constructor on a separate line</b></summary>
-   
-   **Do** Put a call to base or this constructor on a separate line
+    <summary><b>Put a call to `base` or `this` constructor on a separate line</b></summary>
 
-   **Good**
-   
-   ```csharp
-   public MyClass(string argument)
+**Do** Put a call to `base` or `this` constructor on a separate line
+
+**Good**
+
+```csharp
+public MyClass(string argument)
     : base(argument)
-   ```
+{
+...
+}
+```
 </details>
 
 <details>
-	<summary><b>Don't nest multiple using (...), put them on the same level:</b></summary>
-   
-   **Don't** nest multiple using (...), put them on the same level:
+    <summary><b>Don't nest multiple using (...), put them on the same level:</b></summary>
 
-   **Good**
-   
-   ```csharp
-   using(var disposable1 = ...)
-      using(var disposable2 = ...)
-      {
-          ...
-      }
-   ```
+**Don't** nest multiple using (...), put them on the same level:
+
+**Good**
+
+```csharp
+using(var disposable1 = ...)
+using(var disposable2 = ...)
+{
+    ...
+}
+```
 </details>
 
 <details>
-	<summary><b>Add `,` at the end of the line in object initializers</b></summary>
-   
-   **Do** Add , at the end of the line in object initializers.
-   This will reduce the number of modified lines in the next pull request.
+    <summary><b>Add `,` at the end of the line in object initializers</b></summary>
 
-   **Good**
-   
-   ```csharp
-   var criteria = new SearchCriteria
-   {
-       Skip = 0,
-       Take = 10,
-   };
-   ```
+**Do** Add `,` at the end of the line in object initializers.
+
+**Why?** This will reduce the number of modified lines in the next pull request.
+
+**Good**
+
+```csharp
+var criteria = new SearchCriteria
+{
+    Skip = 0,
+    Take = 10,
+};
+```
 </details>
 
 <details>
-	<summary><b>Don't add <SubType>Designer</SubType>. Use VS 2019, where this bug is fixed</b></summary>
-   
-   **Don't** add <SubType>Designer</SubType>. Use VS 2019, where this bug is fixed.
+    <summary><b>Don't add `SubType Designer`. Use VS 2019, where this bug is fixed</b></summary>
+
+**Don't** add `<SubType>Designer</SubType>`. Use VS 2019, where this bug is fixed.
 </details>
 
 ### Testing
