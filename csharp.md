@@ -8,9 +8,7 @@ These guidelines are based on C# and Microsoft conventions.
 We recommend that you follow these design guidelines when developing classes and components that extend the .NET Framework. Inconsistent library design adversely affects developer productivity and discourages adoption.
 
 <details>
-	<summary><b>These guidelines are organized as simple recommendations prefixed with the terms</b></summary>
-
-These guidelines are organized as simple recommendations prefixed with the terms: 
+    <summary><b>These guidelines are organized as simple recommendations prefixed with the terms</b></summary>
 
 **Do** is one that should always be followed. Always might be a bit too strong of a word. Guidelines that literally should always be followed are extremely rare. On the other hand, you need a really unusual case for breaking a Do guideline.
 
@@ -26,11 +24,11 @@ These guidelines are organized as simple recommendations prefixed with the terms
 **Note:** A guideline is flexible and can be adjusted and improved.
 
 ## Fix Issues Before They Exist
-This set of tools and extension that helps you detect and fix quality issues as you write code. 
+This is a set of tools and extension that helps you to detect and fix quality issues as you write your code.
 You must use these tools and fix the errors before commit to repository.
 
 <details>
-	<summary><b>Use PowerCommands For Visual Studio</b></summary>
+    <summary><b>Use PowerCommands For Visual Studio</b></summary>
 
 [Install Productivity Power Tools](https://marketplace.visualstudio.com/items?itemName=VisualStudioPlatformTeam.PowerCommandsforVisualStudio)
 
@@ -38,8 +36,8 @@ Go to “Tools > Options > Productivity Power Tools > PowerCommands” and Enabl
 </details>
 
 <details>
-	<summary><b>Use SonarLint and SonarQube</b></summary>
-   
+    <summary><b>Use SonarLint and SonarQube</b></summary>
+
 [SonarLint](https://www.sonarlint.org/) is an IDE extension that helps you detect and fix quality issues as you write code.
 Like a spell checker, SonarLint squiggles flaws so that they can be fixed before committing code.
 
@@ -49,9 +47,9 @@ Like a spell checker, SonarLint squiggles flaws so that they can be fixed before
 </details>
 
 <details>
-	<summary><b>Use Visual Studio Code Analyzes</b></summary>
-   
-We recommend to use  use the Microsoft Rules rule set to focus on the most critical problems in your code, including potential security holes, application crashes, and other important logic and design errors. 
+    <summary><b>Use Visual Studio Code Analysis</b></summary>
+
+We recommend to use the Microsoft Rules rule set to focus on the most critical problems in your code, including potential security holes, application crashes, and other important logic and design errors.
 
 Go to "Visual Studio > Analyze > Run Code Analysis > On Solution".
 
@@ -64,155 +62,133 @@ Read [Coding Conventions](https://docs.microsoft.com/en-us/dotnet/csharp/program
 ## C# FRAMEWORK DESIGN GUIDELINES
 Read [Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/)
 
-These guidelines are excerpted from the book FRAMEWORK DESIGN GUIDELINES: CONVENTIONS, IDIOMS, AND PATTERNS FOR REUSABLE .NET LIBRARIES, 2ND EDITION, by Krzysztof Cwalina and Brad Abrams. 
+These guidelines are excerpted from the book FRAMEWORK DESIGN GUIDELINES: CONVENTIONS, IDIOMS, AND PATTERNS FOR REUSABLE .NET LIBRARIES, 2ND EDITION, by Krzysztof Cwalina and Brad Abrams.
 
 ## VIRTO COMMERCE C# CODING CONVENTIONS
 
 ### Naming
-Naming conventions are hugely important to maintainability and readability. This guide recommends naming conventions for the file name and the symbol name.
+Naming conventions are hugely important for maintainability and readability. This guide recommends naming conventions for the file names and the symbol names.
 
 <details>
-	<summary><b>Names should be clear and meaningful</b></summary>
-   
-   1. Names should be clear and meaningful. 
-   1. Good names replace comments in most cases.
-   1. Good names allow to read the code like a book.
-   
-   **Bad**
-   
-   ```csharp
-   var dataFromDb = db.GetFromService().ToList();
-   
-   ```
+    <summary><b>Names should be clear and meaningful</b></summary>
 
-   **Good**
-   
-   ```csharp
-   var listOfEmployee = _employeeService.GetEmployees().ToList();
-   ```
+1. Names should be clear and meaningful.
+1. Good names replace comments in most cases.
+1. Good names allow to read the code like a book.
+
+**Bad**
+
+```csharp
+var dataFromDb = db.GetData();
+```
+
+**Good**
+
+```csharp
+var employees = employeeService.GetEmployees();
+```
 </details>
 
 <details>
-	<summary><b>Use full words instead of shortened one</b></summary>
-   
-   **Do** Use full words instead of shortened one.
-   
-   **Bad**
-   
-   ```csharp
-   var lEmpl = ...
-   var val = ...
-   var resp = ...
-   ```
+    <summary><b>Use full words instead of shortened ones</b></summary>
 
-   **Good**
-   
-   ```csharp
-   var listOfEmployee = ...
-   var value = ...
-   var response = ...
-   ```
+**Do** Use full words instead of shortened one.
+
+**Bad**
+
+```csharp
+var empl = ...
+var val = ...
+var resp = ...
+```
+
+**Good**
+
+```csharp
+var employees = ...
+var value = ...
+var response = ...
+```
 </details>
 
 <details>
-	<summary><b>Names of private fields and constants should start with `_` and lowercase letter</b></summary>
-   
-   **Do** Names of private fields and constants should start with `_` and lowercase letter. 
-   This is the only case when `_` can be used in names.
-   
-   **Bad**
-   
-   ```csharp
-   private int DaySinceModification;
-   
-   ```
+    <summary><b>Names of private fields and constants should start with `_` and lowercase letter</b></summary>
 
-   **Good**
-   
-   ```csharp
-   private int _daySinceModification;
-   ```
+**Do** Names of private fields and constants should start with `_` and lowercase letter.
+This is the only case when `_` should be used in names.
+
+**Bad**
+
+```csharp
+private const int Batch_Size;
+private char[] delimiters = { ',', ';' };
+```
+
+**Good**
+
+```csharp
+private const int _batchSize;
+private char[] _delimiters = { ',', ';' };
+```
 </details>
 
 <details>
-	<summary><b>Don't add `Impl` suffix to interface implementations</b></summary>
-   
-   **Don't** add `Impl` suffix to interface implementations.
-   
-   **Bad**
-   
-   ```csharp
-   public class CatalogServiceImpl: ICatalogService
-   
-   ```
+    <summary><b>Don't add `Impl` suffix to interface implementations</b></summary>
 
-   **Good**
-   
-   ```csharp
-   public class CatalogService: ICatalogService
-   ```
+**Don't** add `Impl` suffix to interface implementations.
+
+**Bad**
+
+```csharp
+public class CatalogServiceImpl: ICatalogService
+```
+
+**Good**
+
+```csharp
+public class CatalogService: ICatalogService
+```
 </details>
 
 <details>
-	<summary><b>Use result instead of retVal</b></summary>
-   
-   **Do** Use **result** instead of **retVal**.
-   
-   **Bad**
-   
-   ```csharp
-   var retVal = ...;
-   
-   ```
+    <summary><b>Use `result` instead of `retVal`</b></summary>
 
-   **Good**
-   
-   ```csharp
-   var result = ...;
-   ```
+**Do** Use `result` instead of `retVal`.
+
+**Bad**
+
+```csharp
+var retVal = ...;
+```
+
+**Good**
+
+```csharp
+var result = ...;
+```
 </details>
 
 <details>
-	<summary><b>Use C# keywords instead of classes</b></summary>
-   
-  **Do** Use C# keywords instead of classes:.
-   
-   **Bad**
-   
-   ```csharp
-   String fullName = ...;
-   Int32 counter = ...;   
-   ```
-   
-   **Good**
-   
-   ```csharp
-   string fullName = ...;
-   int counter = ...;
-   ```
+    <summary><b>Use C# keywords instead of classes</b></summary>
+
+**Do** Use C# keywords instead of classes:
+
+**Bad**
+
+```csharp
+String fullName = ...;
+Int32 counter = ...;
+```
+
+**Good**
+
+```csharp
+string fullName = ...;
+int counter = ...;
+```
 </details>
 
-<details>
-	<summary><b>Put a call to `base` or `this` constructor on a separate line</b></summary>
-   
-  **Do** Put a call to `base` or `this` constructor on a separate line.
-   
-   **Bad**
-   
-   ```csharp
-   public MyClass(string argument): base(argument)
-   ```
-   
-   **Good**
-   
-   ```csharp
-   public MyClass(string argument):
-      base(argument)
-   ```
-</details>
-
-
-### Coding conventions	
+### Coding conventions
 
 <details>
 	<summary><b>Check simple values in conditions first</b></summary>
@@ -405,13 +381,6 @@ Naming conventions are hugely important to maintainability and readability. This
 </details>
 
 <details>
-	<summary><b>Whitespaces at the end of the line are not allowed</b></summary>
-   
-  **Don't** Whitespaces at the end of the line are not allowed.
-
-</details>
-
-<details>
 	<summary><b>Use the following order of members in a class</b></summary>
    
    **Consider** Use the following order of members in a class:
@@ -533,7 +502,7 @@ Naming conventions are hugely important to maintainability and readability. This
 </details>
 
 <details>
-	<summary><b>Add , at the end of the line in object initializers</b></summary>
+	<summary><b>Add `,` at the end of the line in object initializers</b></summary>
    
    **Do** Add , at the end of the line in object initializers.
    This will reduce the number of modified lines in the next pull request.
