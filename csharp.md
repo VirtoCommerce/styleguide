@@ -191,146 +191,141 @@ int counter = ...;
 ### Coding conventions
 
 <details>
-	<summary><b>Check simple values in conditions first</b></summary>
-   
-  **Consider** Check simple values in conditions first.
-   
-   **Bad**
-   
-   ```csharp
-   if (GetSomeValue() > 0 && isActive)
-   ```
-   
-   **Good**
-   
-   ```csharp
-   if (isActive && GetSomeValue() > 0)
-   ```
-</details>
+    <summary><b>Don't use regions, especially in small files</b></summary>
 
+**Don't** use regions (#region), especially in small files.
 
-<details>
-	<summary><b>Don't use Single()</b></summary>
-   
-  **Don't** use Single(). Or if you do, handle exceptions
-   
-   **Bad**
-   
-   ```csharp
-   var manager = _employeeService.GetEmployees().Single();
-   ```
-   
-   **Good**
-   
-   ```csharp
-   var manager = _employeeService.GetEmployees().First();
-   ```
+**Why?** You have to expand each region before reading the code.
 </details>
 
 <details>
-	<summary><b>API methods with [ResponseType(typeof(void))] attribute should return</b></summary>
-   
-  **Do** API methods with [ResponseType(typeof(void))] attribute should return
+    <summary><b>Combine class properties in logical groups</b></summary>
 
+**Consider** Combine class properties in logical groups.
 </details>
 
 <details>
-	<summary><b>Return StatusCode(HttpStatusCode.NoContent)</b></summary>
-   
-  **Do** Return StatusCode(HttpStatusCode.NoContent), not Ok()
-   
+    <summary><b>Initialize properties in the same order as they are declared in the class</b></summary>
+
+**Do** Initialize properties in the same order as they are declared in the class.
 </details>
 
 <details>
-	<summary><b>Split complex methods into multiple short methods with clear and meaningful names</b></summary>
-   
-  **Do** Split complex methods into multiple short methods with clear and meaningful names.
+    <summary><b>Simplify complex conditions and expressions</b></summary>
+
+**Do** Simplify complex conditions and expressions by creating intermediate variables with clear and meaningful names.
 </details>
 
 <details>
-	<summary><b>Each method should have only one return at the end.</b></summary>
-   
-  **Do** Each method should have only one return at the end.
-   
-   **Bad**
-   
-   ```csharp
-   if(!isActive)
-      return;
-      
-   return;
-   ```
-   
-   **Good**
-   
-   ```csharp
-   if(isActive)
-   {
-   }
-      
-   return;
-   ```
+    <summary><b>Check simple values in conditions first</b></summary>
+
+**Consider** Check simple values in conditions first.
+
+**Bad**
+
+```csharp
+if (GetSomeValue() > 0 && isActive)
+```
+
+**Good**
+
+```csharp
+if (isActive && GetSomeValue() > 0)
+```
 </details>
 
 <details>
-	<summary><b>Each method should have only one return at the end</b></summary>
-   
-  **Do** Each method should have only one return at the end.
-</details>   
+    <summary><b>Split complex methods into multiple short methods with clear and meaningful names</b></summary>
+
+**Do** Split complex methods into multiple short methods with clear and meaningful names.
+</details>
 
 <details>
-	<summary><b>Place calling method before the one being called</b></summary>
-   
-  **Do** If one method calls another, place calling method before the one being called.
-</details>   
+    <summary><b>Place calling method before the one being called</b></summary>
+
+**Do** If one method calls another, place calling method before the one being called.
+</details>
 
 <details>
-	<summary><b>Don't make API calls in a loop.</b></summary>
-   
-  **Don't** make API calls in a loop.
-</details>   
+<summary><b>Each method should have only one return at the end</b></summary>
+
+**Do** Each method should have only one return at the end.
+
+**Bad**
+
+```csharp
+if(!isActive)
+    return null;
+...
+return ...;
+```
+
+**Good**
+
+```csharp
+var result = null;
+if(isActive)
+{
+    ...
+    result = ...;
+}
+return result;
+```
+</details>
 
 <details>
-	<summary><b>Simplify complex conditions and expressions</b></summary>
-   
-  **Do** Simplify complex conditions and expressions by creating intermediate variables with clear and meaningful names.
-</details> 
+    <summary><b>Avoid calling .ToList() or .ToArray() when you really need IEnumerable</b></summary>
+
+**Don't** Call `.ToList()` or `.ToArray()` when you really need IEnumerable.
+</details>
 
 <details>
-	<summary><b>Simplify complex conditions and expressions</b></summary>
-   
-  **Do** Simplify complex conditions and expressions by creating intermediate variables with clear and meaningful names.
-</details> 
+    <summary><b>Don't use Single()</b></summary>
+
+**Don't** use `Single()`. Or if you do, handle exceptions
+
+**Bad**
+
+```csharp
+var employee = _employeeService.GetEmployees().Single();
+```
+
+**Good**
+
+```csharp
+var employee = _employeeService.GetEmployees().FirstOrDefault();
+```
+</details>
 
 <details>
-	<summary><b>Avoid calling .ToList() or .ToArray() when you really need IEnumerable</b></summary>
-   
-  **Don't** Call .ToList() or .ToArray() when you really need IEnumerable.
-</details> 
+    <summary><b>Don't make API calls in a loop</b></summary>
+
+**Don't** make API calls in a loop.
+</details>
 
 <details>
-	<summary><b>Don't use regions, especially in small files</b></summary>
-   
-  **Don't** use regions (#region), especially in small files. You have to expand each region before reading the code.
-</details> 
+    <summary><b>Use kebab notation for API URLs</b></summary>
+
+**Do** Use kebab notation for API URLs.
+
+**Bad**
+
+```
+fulfillmentCenters
+```
+
+**Good**
+
+```
+fulfillment-centers
+```
+</details>
 
 <details>
-	<summary><b>Use kebab notation for API URLs</b></summary>
-   
-  **Do** Use kebab notation for API URLs.
-   
-   **Bad**
-   
-   ```
-   fulfillment-centers
-   ```
-   
-   **Good**
-   
-   ```
-   fulfillmentCenters
-   ```
-</details> 
+    <summary><b>API methods with [ResponseType(typeof(void))] attribute should return HttpStatusCode.NoContent</b></summary>
+
+**Do** Return StatusCode(HttpStatusCode.NoContent), not Ok()
+</details>
 
 ### Formatting
 <details>
