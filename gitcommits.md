@@ -14,16 +14,16 @@ Commit message body.
 
 ## Commit message rules
 
-1. [Start Commit message subject line from Jira issue key (GitHub issue ID)](#1.-Commit-message-subject-line-should-start-from-Jira-issue-key)
-2. [Separate Jira issue key and Commit message subject line by a colon and blank](#2.-Separate-Jira-issue-key-and-Commit-message-subject-line-by-a-colon-and-blank)
-3. [Write Jira issue key in uppercase](#3.-Write-Jira-issue-key-in-uppercase)
-4. [Separate subject from body with a blank line](#4.-Separate-subject-from-body-with-a-blank-line)
-5. [Limit the subject line to 50 characters](#5.-Limit-the-subject-line-to-50-characters)
-6. [Capitalize the subject line](#6.-Capitalize-the-subject-line)
-7. [Do not end the subject line with a period](#7.-Do-not-end-the-subject-line-with-a-period)
-8. [Use the imperative mood in the subject line](#8.-Use-the-imperative-mood-in-the-subject-line)
-9. [Wrap the body at 72 characters](#9.-Wrap-the-body-at-72-characters)
-10. [Use the body to explain what and why vs. how](#10.-Use-the-body-to-explain-what-and-why-vs.-how)
+1. [Start Commit message subject line from Jira issue key (GitHub issue ID)](#1-commit-message-subject-line-should-start-from-jira-issue-key)
+2. [Separate Jira issue key and Commit message subject line by a colon and blank](#2-separate-jira-issue-key-and-commit-message-subject-line-by-a-colon-and-blank)
+3. [Write Jira issue key in uppercase](#3-write-jira-issue-key-in-uppercase)
+4. [Separate subject from body with a blank line](#4-separate-subject-from-body-with-a-blank-line)
+5. [Limit the subject line to 50 characters](#5-limit-the-subject-line-to-50-characters)
+6. [Capitalize the subject line](#6-capitalize-the-subject-line)
+7. [Do not end the subject line with a period](#7-do-not-end-the-subject-line-with-a-period)
+8. [Use the imperative mood in the subject line](#8-use-the-imperative-mood-in-the-subject-line)
+9. [Wrap the body at 72 characters](#9-wrap-the-body-at-72-characters)
+10. [Use the body to explain what and why vs. how](#10-use-the-body-to-explain-what-and-why-vs-how)
 
 ### 1. Commit message subject line should start from Jira issue key
 
