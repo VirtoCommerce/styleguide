@@ -20,7 +20,7 @@ This project holds:
 
 * [C# CODING CONVENTIONS](csharp.md)
 * [DOCS WRITING CONVENTIONS](docs.md)
-* [GIT COMMIT MESSAGE WRITING CONVENTION](gitcommits.md)
+* [GIT COMMIT MESSAGE WRITING CONVENTIONS](gitcommits.md)
 
 ## Style vocabulary
 
