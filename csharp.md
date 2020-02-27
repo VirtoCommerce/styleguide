@@ -1,4 +1,5 @@
 # C# Coding Conventions
+
 We created this style guide to keep the code in Virto Commerce consistent.
 
 The goal is to help library designers ensure API consistency and ease of use by providing a unified programming model that is independent of the programming language used for development.
@@ -24,6 +25,7 @@ We recommend that you follow these design guidelines when developing classes and
 **Note:** A guideline is flexible and can be adjusted and improved.
 
 ## Fix Issues Before They Exist
+
 This is a set of tools and extension that helps you to detect and fix quality issues as you write your code.
 You must use these tools and fix the errors before commit to repository.
 
@@ -57,9 +59,11 @@ Go to "Visual Studio > Analyze > Run Code Analysis > On Solution".
 </details>
 
 ## C# CODING CONVENTIONS - BASIC RECOMMENDATIONS
+
 Read [Coding Conventions](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions)
 
 ## C# FRAMEWORK DESIGN GUIDELINES
+
 Read [Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/)
 
 These guidelines are excerpted from the book FRAMEWORK DESIGN GUIDELINES: CONVENTIONS, IDIOMS, AND PATTERNS FOR REUSABLE .NET LIBRARIES, 2ND EDITION, by Krzysztof Cwalina and Brad Abrams.
@@ -67,6 +71,7 @@ These guidelines are excerpted from the book FRAMEWORK DESIGN GUIDELINES: CONVEN
 ## VIRTO COMMERCE C# CODING CONVENTIONS
 
 ### Naming
+
 Naming conventions are hugely important for maintainability and readability. This guide recommends naming conventions for the file names and the symbol names.
 
 <details>
@@ -87,6 +92,7 @@ var dataFromDb = db.GetData();
 ```csharp
 var employees = employeeService.GetEmployees();
 ```
+
 </details>
 
 <details>
@@ -109,6 +115,7 @@ var employees = ...
 var value = ...
 var response = ...
 ```
+
 </details>
 
 <details>
@@ -130,6 +137,7 @@ private char[] delimiters = { ',', ';' };
 private const int _batchSize;
 private char[] _delimiters = { ',', ';' };
 ```
+
 </details>
 
 <details>
@@ -148,6 +156,7 @@ public class CatalogServiceImpl: ICatalogService
 ```csharp
 public class CatalogService: ICatalogService
 ```
+
 </details>
 
 <details>
@@ -166,6 +175,7 @@ var retVal = ...;
 ```csharp
 var result = ...;
 ```
+
 </details>
 
 <details>
@@ -186,6 +196,7 @@ Int32 counter = ...;
 string fullName = ...;
 int counter = ...;
 ```
+
 </details>
 
 ### Coding conventions
@@ -232,6 +243,7 @@ if (GetSomeValue() > 0 && isActive)
 ```csharp
 if (isActive && GetSomeValue() > 0)
 ```
+
 </details>
 
 <details>
@@ -247,7 +259,7 @@ if (isActive && GetSomeValue() > 0)
 </details>
 
 <details>
-<summary><b>Each method should have only one return at the end</b></summary>
+    <summary><b>Each method should have only one return at the end</b></summary>
 
 **Do** Each method should have only one return at the end.
 
@@ -271,6 +283,7 @@ if(isActive)
 }
 return result;
 ```
+
 </details>
 
 <details>
@@ -295,6 +308,7 @@ var employee = _employeeService.GetEmployees().Single();
 ```csharp
 var employee = _employeeService.GetEmployees().FirstOrDefault();
 ```
+
 </details>
 
 <details>
@@ -319,6 +333,7 @@ fulfillmentCenters
 ```
 fulfillment-centers
 ```
+
 </details>
 
 <details>
@@ -328,6 +343,7 @@ fulfillment-centers
 </details>
 
 ### Formatting
+
 <details>
     <summary><b>Your text editor must support .editorconfig</b></summary>
 
@@ -342,6 +358,7 @@ fulfillment-centers
 1. Install PowerCommandsforVisualStudio
 1. Go to Tools > Options > Productivity Power Tools > PowerCommands
 1. Enable Format documents on save and Remove and Sort Usings on save
+
 </details>
 
 <details>
@@ -364,6 +381,7 @@ using System.Globalization;
 using Nest;
 using VirtoCommerce.Domain.Search
 ```
+
 </details>
 
 <details>
@@ -385,6 +403,7 @@ using VirtoCommerce.Domain.Search
 1. public methods
 1. protected methods
 1. private methods
+
 </details>
 
 <details>
@@ -436,6 +455,7 @@ var names = repository.Items
     .Select(x => x.Name)
     .ToArray();
 ```
+
 </details>
 
 <details>
@@ -444,10 +464,12 @@ var names = repository.Items
 **Do** Put `where` on a separate line
 
 **Good**
+
 ```csharp
 public void Parse<T>(string input)
     where T: new()
 ```
+
 </details>
 
 <details>
@@ -464,6 +486,7 @@ public MyClass(string argument)
 ...
 }
 ```
+
 </details>
 
 <details>
@@ -480,6 +503,7 @@ using(var disposable2 = ...)
     ...
 }
 ```
+
 </details>
 
 <details>
@@ -498,6 +522,7 @@ var criteria = new SearchCriteria
     Take = 10,
 };
 ```
+
 </details>
 
 <details>
@@ -515,6 +540,7 @@ var criteria = new SearchCriteria
 </details>
 
 ### Virto Commerce
+
 <details>
     <summary><b>Custom modules must use the same versions of NuGet packages as in platform or in VC modules</b></summary>
 
@@ -554,6 +580,7 @@ public IHttpActionResult Create(ThumbnailOption option)
     return Ok(option);
 }
 ```
+
 </details>
 
 <details>
@@ -570,6 +597,7 @@ public IHttpActionResult Create(ThumbnailOption option)
 </details>
 
 ## Templates
+
 <details>
     <summary><b>Short description</b></summary>
 
@@ -586,4 +614,5 @@ public IHttpActionResult Create(ThumbnailOption option)
 ```csharp
 // Good code example
 ```
+
 </details>
