@@ -139,19 +139,16 @@ Take out the trash
 
 The imperative can sound a little rude; that’s why we don’t often use it. But it’s perfect for Git commit subject lines. One reason for this is that Git itself uses the imperative whenever it creates a commit on your behalf.
 
-To remove any confusion, here's a simple rule to get it right every time.
-
-A properly formed Git commit subject line should always be able to complete the following sentence:
+To remove any confusion, here's a simple rule to get it right every time. **A properly formed Git commit subject line should always be able to complete the following sentence:**
 
 ```markdown
-If applied, this commit will *your subject line here*
+If applied, this commit will **your subject line here**
 ```
 
 **Bad**
 
 ```markdown
 Added style for hero, reviews, partners block, divided blocks on section names: -cover.html, -hero.html etc
-
 ```
 
 **Good**
