@@ -43,7 +43,7 @@ Go to “Tools > Options > Productivity Power Tools > PowerCommands” and Enabl
 [SonarLint](https://www.sonarlint.org/) is an IDE extension that helps you detect and fix quality issues as you write code.
 Like a spell checker, SonarLint squiggles flaws so that they can be fixed before committing code.
 
-[Install SonarLint in Visual Studio](https://marketplace.visualstudio.com/items?itemName=SonarSource.SonarLintforVisualStudio2017)
+[Install SonarLint in Visual Studio](https://marketplace.visualstudio.com/items?itemName=SonarSource.SonarLintforVisualStudio2019)
 
 [List of C# rules](https://rules.sonarsource.com/csharp)
 </details>
