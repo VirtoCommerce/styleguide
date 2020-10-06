@@ -50,7 +50,7 @@ Just read Bootstrap documentation:
 * [v4](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
 * [v5](https://v5.getbootstrap.com/)
 
-Bootstrap 5 documentation is much better than v3 and v4. While it's newer and include v5-specific things, most of content are still applicable for older versions of bootstrap.
+Bootstrap v5 documentation is much better than v3 and v4. While it's newer and include v5-specific things, most of content are still applicable for older versions of bootstrap.
 
 ## Bootstrap customization
 
@@ -80,8 +80,9 @@ Also, SCSS (SASS) variables isn't variables in usual meanings. You can't defined
 
 ##### Links
 
-https://getbootstrap.com/docs/3.4/css/#less-variables  
-https://getbootstrap.com/docs/4.5/getting-started/theming/#variable-defaults  
+* v3: [Less variables](https://getbootstrap.com/docs/3.4/css/#less-variables)  
+* v4: [Variable defaults](https://getbootstrap.com/docs/4.5/getting-started/theming/#variable-defaults)  
+* v5: [Variable defaults](https://v5.getbootstrap.com/docs/5.0/customize/sass/#variable-defaults)  
 
 ### Shared variables
 
@@ -95,7 +96,7 @@ Use bootstrap variables to change color palette:
 ```scss
 // v3
 $brand-primary: darken(#428bca, 6.5%) !default;
-// v4
+// v4, v5
 $primary: $blue !default;
 ```
 ![](assets/bootstrap/variables-primary-default.png)
@@ -103,7 +104,7 @@ $primary: $blue !default;
 ```scss
 // v3
 $brand-primary: #e51400;
-// v4
+// v4, v5
 $primary: #e51400;
 ```
 ![](assets/bootstrap/variables-primary-custom.png)
@@ -114,8 +115,9 @@ This is built-in functionality to customize Bootstrap. You probably always will 
 
 ##### Links
 
-https://getbootstrap.com/docs/3.4/css/#less-variables-colors  
-https://getbootstrap.com/docs/4.5/getting-started/theming/#theme-colors  
+* v3: [Less variables - Colors](https://getbootstrap.com/docs/3.4/css/#less-variables-colors)  
+* v4: [Theme colors](https://getbootstrap.com/docs/4.5/getting-started/theming/#theme-colors)  
+* v5: [Customize - Colors](https://v5.getbootstrap.com/docs/5.0/customize/color/)  
 
 #### Do
 
@@ -128,7 +130,7 @@ $body-bg: #fff !default;
 $link-color: $brand-primary !default;
 $font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-size-base: 14px !default;
-// v4
+// v4, v5
 $body-bg: $white !default;
 $link-color: theme-color("primary") !default;
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
@@ -142,7 +144,7 @@ $body-bg: #000;
 $link-color: $brand-warning;
 $font-family-sans-serif: "Comic Sans MS", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-size-base: 21px;
-// v4
+// v4, v5
 $body-bg: $black;
 $link-color: theme-color("warning");
 $font-family-sans-serif: "Comic Sans MS", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -156,24 +158,24 @@ These colors often used in Bootstrap classes, so if you want to change body back
 
 ##### Links
 
-https://getbootstrap.com/docs/3.4/css/#less-variables-scaffolding  
-https://getbootstrap.com/docs/4.5/content/reboot/#page-defaults  
-https://getbootstrap.com/docs/4.5/content/typography/#global-settings  
+* v3: [Less variables - Scaffolding](https://getbootstrap.com/docs/3.4/css/#less-variables-scaffolding)  
+* v4: [Page defaults](https://getbootstrap.com/docs/4.5/content/reboot/#page-defaults), [Global settings](https://getbootstrap.com/docs/4.5/content/typography/#global-settings)  
+* v5: [Page defaults](https://v5.getbootstrap.com/docs/5.0/content/reboot/#page-defaults), [Global settings](https://v5.getbootstrap.com/docs/5.0/content/typography/#global-settings)  
 
 #### Do
 
-Use Bootstrap variables to configure default margins & paddings (spaces in Bootstrap v4)
+Use Bootstrap variables to configure default margins & paddings (spaces in Bootstrap v4, v5)
 
 #### Don't
 
-Use "random" - not stored in existing variables or extended maps [see below] - spacing. // TODO: Add link
+Use "random" - not stored in existing variables or extended [maps](#maps-and-loops) [see below] - spacing.
 
 ##### Default
 ```scss
 // v3
 $padding-base-vertical: 6px !default;
 $padding-base-horizontal: 12px !default;
-// v4
+// v4, v5
 $spacer: 1rem !default;
 ```
 ##### Customized
@@ -181,7 +183,7 @@ $spacer: 1rem !default;
 // v3
 $padding-base-vertical: 10px;
 $padding-base-horizontal: 20px;
-// v4
+// v4, v5
 $spacer: 1.25rem;
 ```
 
@@ -192,7 +194,7 @@ Bootstrap SCSS contains calculations based on these variables, for example:
 // v3
 //** Default `.form-control` height
 $input-height-base: ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
-//v4
+//v4, v5
 $input-height: add($input-line-height * 1em, add($input-padding-y * 2, $input-height-border, false)) !default;
 ```
 These calculations allow to correctly position elements on layout and prevent it breaking.
@@ -206,8 +208,9 @@ These calculations allow to correctly position elements on layout and prevent it
 
 ##### Links
 
-https://getbootstrap.com/docs/3.4/css/#less-variables-components  
-https://getbootstrap.com/docs/4.5/utilities/spacing/  
+* v3: [Less variables - Components](https://getbootstrap.com/docs/3.4/css/#less-variables-components)  
+* v4: [Spacing](https://getbootstrap.com/docs/4.5/utilities/spacing/)  
+* v5: [Spacing](https://v5.getbootstrap.com/docs/5.0/utilities/spacing/)  
 
 ### Component style variables
 
@@ -248,14 +251,15 @@ Some components like buttons and inputs will have aligned height, width and othe
 
 ##### Links
 
-https://getbootstrap.com/docs/3.4/components/  
-https://getbootstrap.com/docs/4.5/components/alerts/  
+* v3: [Components](https://getbootstrap.com/docs/3.4/components/)  
+* v4: [Components](https://getbootstrap.com/docs/4.5/components/alerts/)  
+* v5: [Components](https://v5.getbootstrap.com/docs/5.0/components/alerts/)  
 
 ### Feature switches
 
-> **Bootstrap v4** feature
+> **Bootstrap v4 and v5** feature
 
-Some Bootstrap v4 features are opt-in or opt-out i.e. disabled by default and can be enabled or enabled by default and can be disabled.  
+Some Bootstrap v4 and v5 features are opt-in or opt-out i.e. disabled by default and can be enabled or enabled by default and can be disabled.  
 To enable or disable them use Bootstrap sass options:
 
 #### Default
@@ -272,13 +276,14 @@ $enabled-rounded: false;
 
 #### Links
 
-https://getbootstrap.com/docs/4.5/getting-started/theming/#sass-options  
+* v4: [SASS Options](https://getbootstrap.com/docs/4.5/getting-started/theming/#sass-options)  
+* v5: [Options](https://v5.getbootstrap.com/docs/5.0/customize/options/)  
 
 ## Bootstrap extensibility
 
 ### Maps and loops
 
-> **Bootstrap v4** feature
+> **Bootstrap v4 and v5** feature
 
 *Maps* in SCSS (SASS) is a [hash table](https://en.wikipedia.org/wiki/Hash_table) or simplier: it's key-value pairs storage.  
 [*Loops*](https://en.wikipedia.org/wiki/Control_flow#Loops) in SCSS (SASS) is a implementation of iterators or cycles (better known by keywords `for`, `for each`, `while` and so on).
@@ -305,7 +310,8 @@ It's easiest and fast way to add, modify or remove variations into Bootstrap.
 
 ##### Links
 
-https://getbootstrap.com/docs/4.5/getting-started/theming/#add-and-subtract-functions  
+* v4: [Maps and loops](https://getbootstrap.com/docs/4.5/getting-started/theming/#maps-and-loops)  
+* v5: [SASS - Maps and loops](https://v5.getbootstrap.com/docs/5.0/customize/sass/#maps-and-loops)  
 
 #### Do
 
@@ -341,17 +347,17 @@ You can simple generate much of variations for the same style without copy-paste
 
 ##### Links
 
-https://en.wikipedia.org/wiki/Hash_table  
-https://en.wikipedia.org/wiki/Control_flow#Loops  
-https://sass-lang.com/documentation/values/maps  
-https://sass-lang.com/documentation/at-rules/control/for  
-https://sass-lang.com/documentation/at-rules/control/each  
-https://sass-lang.com/documentation/at-rules/control/while  
+* https://en.wikipedia.org/wiki/Hash_table  
+* https://en.wikipedia.org/wiki/Control_flow#Loops  
+* https://sass-lang.com/documentation/values/maps  
+* https://sass-lang.com/documentation/at-rules/control/for  
+* https://sass-lang.com/documentation/at-rules/control/each  
+* https://sass-lang.com/documentation/at-rules/control/while  
 
 #### Programming principles
 
-[Code reuse](https://en.wikipedia.org/wiki/Code_reuse)  
-[Iterator pattern](https://en.wikipedia.org/wiki/Iterator_pattern)  
+* [Code reuse](https://en.wikipedia.org/wiki/Code_reuse)  
+* [Iterator pattern](https://en.wikipedia.org/wiki/Iterator_pattern)  
 
 ### Mixins
 
@@ -416,17 +422,19 @@ Don't use [deprecated vendor mixins](https://getbootstrap.com/docs/4.5/migration
 
 #### Programming principles
 
-[Code reuse](https://en.wikipedia.org/wiki/Code_reuse)  
-[Template processor](https://en.wikipedia.org/wiki/Template_processor)  
-[Open-closed principle](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)  
-[Dependency inversion principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle)  
+* [Code reuse](https://en.wikipedia.org/wiki/Code_reuse)  
+* [Template processor](https://en.wikipedia.org/wiki/Template_processor)  
+* [Open-closed principle](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)  
+* [Dependency inversion principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle)  
 
 #### Links
 
-https://getbootstrap.com/docs/3.4/css/#less-mixins-utility  
-https://getbootstrap.com/docs/4.5/utilities/float/#mixins 
-https://getbootstrap.com/docs/4.5/layout/grid/#sass-mixins  
-https://www.sass-lang.com/documentation/at-rules/mixin
+* https://www.sass-lang.com/documentation/at-rules/mixin
+
+Some of Bootstrap mixins:  
+* v3: [Mixins - Utility](https://getbootstrap.com/docs/3.4/css/#less-mixins-utility)  
+* v4: [Grid - Mixins](https://getbootstrap.com/docs/4.5/layout/grid/#sass-mixins)  
+* v5: [Grid - Mixins](https://v5.getbootstrap.com/docs/5.0/layout/grid/#mixins)  
 
 ### Modifiers
 
@@ -474,9 +482,9 @@ There are existing frameworks, approaches and tools which implement these approa
 
 #### Links
 
-https://getbootstrap.com/docs/4.5/extend/approach/#classes
-http://getbem.com/introduction/
-// TODO: add links to upcoming sections of helpers and encapsulation
+* v4: [Classes](https://getbootstrap.com/docs/4.5/extend/approach/#classes)
+* v5: [Classes](https://v5.getbootstrap.com/docs/5.0/extend/approach/#classes)
+* http://getbem.com/introduction/
 
 ### Encapsulation
 
@@ -523,5 +531,6 @@ Frameworks like Angular use [Shadow DOM](https://developer.mozilla.org/en-US/doc
 #### Links
 
 * https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#Specificity
-* https://getbootstrap.com/docs/4.5/extend/approach/#classes
 * https://angular.io/guide/component-styles#view-encapsulation
+* v4: [Classes](https://getbootstrap.com/docs/4.5/extend/approach/#classes)
+* v5: [Classes](https://v5.getbootstrap.com/docs/5.0/extend/approach/#classes)
