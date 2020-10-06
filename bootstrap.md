@@ -15,9 +15,10 @@
    3. [How to use](#how-to-use)
 2. [Bootstrap customization](#bootstrap-customization)
    1. [Theme Builder and other utilities](#theme-builder-and-other-utilities)
-   2. [Shared variables](#shared-variables)
-   3. [Component style variables](#component-style-variables)
-   4. [Feature switches](#feature-switches)
+   2. [About variables](#about-variables)
+   3. [Shared variables](#shared-variables)
+   4. [Component style variables](#component-style-variables)
+   5. [Feature switches](#feature-switches)
 3. [Bootstrap extensibility](#bootstrap-extensibility)
    1. [Maps and loops](#maps-and-loops)
    2. [Mixins](#mixins)
@@ -33,6 +34,8 @@ Bootstrap [provide](https://getbootstrap.com/docs/4.5/getting-started/download/)
 * For performance, it's better to [leave only code you needed](https://getbootstrap.com/docs/4.5/getting-started/contents/#bootstrap-source-code): just include variables, utilities and only needed components in same order as in `bootstrap.scss`
 
 ### Javascript
+
+Bootstrap components can be splitted into two parts: ones which require javascript for working and ones which doesn't.
 
 By default, bootstrap (v3, v4) shipped with javascript components based on jquery. If you use React, angular.js, Angular or Vue.js, use one of the following replacements or find better one:
 * [React Bootstrap](https://react-bootstrap.github.io/)
@@ -63,11 +66,13 @@ A little note about difference between Bootstrap 4 and 3 from authors of Bootstr
 
 You also may read about [other useful utilities](https://habr.com/ru/post/520788/) (Russian).
 
-### Shared variables
+### About variables
 
 The primary customization way for Bootstrap is to override Bootstrap variable values.
 
-If you need to change backgrounds, borders, sizes, margins & paddings and other common parts of HTML elements and Bootstrap components for *all their instances across the site*, then you need to override Bootstrap variable values.
+> **Note:** you can see all available bootstrap variables in `_variables.scss` file of bootstrap source code.
+
+Also, SCSS (SASS) variables isn't variables in usual meanings. You can't defined variables which value will be changed when you set it later. SASS variables is really more like *constants* and will have new value on scope below, but doesn't affect scope above. Because of this, SASS introduce `!default` postfix.
 
 #### Default values
 
@@ -76,7 +81,11 @@ If you need to change backgrounds, borders, sizes, margins & paddings and other 
 ##### Links
 
 https://getbootstrap.com/docs/3.4/css/#less-variables  
-https://getbootstrap.com/docs/4.5/getting-started/theming/#variable-defaults
+https://getbootstrap.com/docs/4.5/getting-started/theming/#variable-defaults  
+
+### Shared variables
+
+If you need to change backgrounds, borders, sizes, margins & paddings and other common parts of HTML elements and Bootstrap components for *all their instances across the site*, then you need to override Bootstrap variable values.
 
 #### Do
 
@@ -106,7 +115,7 @@ This is built-in functionality to customize Bootstrap. You probably always will 
 ##### Links
 
 https://getbootstrap.com/docs/3.4/css/#less-variables-colors  
-https://getbootstrap.com/docs/4.5/getting-started/theming/#theme-colors
+https://getbootstrap.com/docs/4.5/getting-started/theming/#theme-colors  
 
 #### Do
 
@@ -149,7 +158,7 @@ These colors often used in Bootstrap classes, so if you want to change body back
 
 https://getbootstrap.com/docs/3.4/css/#less-variables-scaffolding  
 https://getbootstrap.com/docs/4.5/content/reboot/#page-defaults  
-https://getbootstrap.com/docs/4.5/content/typography/#global-settings
+https://getbootstrap.com/docs/4.5/content/typography/#global-settings  
 
 #### Do
 
@@ -198,9 +207,151 @@ These calculations allow to correctly position elements on layout and prevent it
 ##### Links
 
 https://getbootstrap.com/docs/3.4/css/#less-variables-components  
-https://getbootstrap.com/docs/4.5/utilities/spacing/
+https://getbootstrap.com/docs/4.5/utilities/spacing/  
+
+### Component style variables
+
+If need to customize more specific part of Bootstrap, shuch as some of Bootstrap components, then you need to use component variables.
+
+#### Do
+
+Use compontent-specific variables to customize component style:
+
+```scss
+$btn-border-width: 2px;
+```
+![](assets/bootstrap/btn-border-width.png)
+
+Component variables may use shared variables and has hierarcy like:
+
+<pre>
+| $font-size-base
+-- | $input-btn-font-size
+   -- | $btn-font-size
+</pre>
+
+##### Why?
+
+This will guarantee all components which use these variables will look the same way.
+
+#### Do
+
+Use hierarcy of component-specific variables to customize multiple related components:
+```scss
+$input-btn-border-width: 2px;
+```
+![](assets/bootstrap/input-btn-border-width.png)
+
+##### Why?
+
+Some components like buttons and inputs will have aligned height, width and other parts of style in most of layouts. This is easy way to make them looking unified.
+
+##### Links
+
+https://getbootstrap.com/docs/3.4/components/  
+https://getbootstrap.com/docs/4.5/components/alerts/  
+
+### Feature switches
+
+> **Bootstrap v4** feature
+
+Some Bootstrap v4 features are opt-in or opt-out i.e. disabled by default and can be enabled or enabled by default and can be disabled.  
+To enable or disable them use Bootstrap sass options:
+
+#### Default
+```scss
+$enabled-rounded: true !default;
+```
+![](assets/bootstrap/rounded-enabled.png)
+
+#### Customized
+```scss
+$enabled-rounded: false;
+```
+![](assets/bootstrap/rounded-disabled.png)
+
+#### Links
+
+https://getbootstrap.com/docs/4.5/getting-started/theming/#sass-options  
 
 ## Bootstrap extensibility
+
+### Maps and loops
+
+> **Bootstrap v4** feature
+
+*Maps* in SCSS (SASS) is a [hash table](https://en.wikipedia.org/wiki/Hash_table) or simplier: it's key-value pairs storage.  
+[*Loops*](https://en.wikipedia.org/wiki/Control_flow#Loops) in SCSS (SASS) is a implementation of iterators or cycles (better known by keywords `for`, `for each`, `while` and so on).
+
+These two things allows you to simple write (specify map, then do a loop through it) and use (just add new value, modify or remove value from loop) variations of components and utilities.
+
+#### Do
+
+Use existing maps to extend Bootstrap components and utilities variations such as color palette, spaces, sizes, grid or screen breakpoints.
+
+```scss
+$theme-colors: (
+  "tretiary": #ff4500,
+);
+```
+```html
+<button type="button" class="btn btn-tretiary">Tretiary</button>
+```
+![](assets/bootstrap/btn-tretiary.png)
+
+##### Why?
+
+It's easiest and fast way to add, modify or remove variations into Bootstrap.
+
+##### Links
+
+https://getbootstrap.com/docs/4.5/getting-started/theming/#add-and-subtract-functions  
+
+#### Do
+
+Add your own maps and use loops to iterate through them to easy & fast generate similar code styles.
+
+```scss
+.loader {
+  ...
+
+  $sizes: ("xs": .75, "sm": .875, "lg": 1.33);
+
+  @each $name, $value in $sizes {
+    &.size-#{$name} {
+      min-height: $value * 1em + 1em;
+    }
+  }
+
+  @for $i from 2 to 10 {
+    &.size-#{$i}x {
+      min-height: $i * 1em + 1em;
+    }
+  }
+}
+```
+```html
+<app-loader class="loader size-5x"></app-loader>
+```
+![](assets/bootstrap/loader.gif)
+
+##### Why?
+
+You can simple generate much of variations for the same style without copy-paste.
+
+##### Links
+
+https://en.wikipedia.org/wiki/Hash_table  
+https://en.wikipedia.org/wiki/Control_flow#Loops  
+https://sass-lang.com/documentation/values/maps  
+https://sass-lang.com/documentation/at-rules/control/for  
+https://sass-lang.com/documentation/at-rules/control/each  
+https://sass-lang.com/documentation/at-rules/control/while  
+
+#### Programming principles
+
+[Code reuse](https://en.wikipedia.org/wiki/Code_reuse)  
+[Iterator pattern](https://en.wikipedia.org/wiki/Iterator_pattern)  
 
 ### Mixins
 
@@ -266,6 +417,7 @@ Don't use [deprecated vendor mixins](https://getbootstrap.com/docs/4.5/migration
 #### Programming principles
 
 [Code reuse](https://en.wikipedia.org/wiki/Code_reuse)  
+[Template processor](https://en.wikipedia.org/wiki/Template_processor)  
 [Open-closed principle](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle)  
 [Dependency inversion principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle)  
 
