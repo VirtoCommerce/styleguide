@@ -199,6 +199,27 @@ int counter = ...;
 
 </details>
 
+<details>
+    <summary><b>Simplify single lambda expression parameter name, use full names for multiple parameters</b></summary>
+
+**Do** For one argument - always use `x`, for more than one - give full meaningful names:
+
+**Bad**
+
+```csharp
+i => …;
+item => …;
+(x, y) => …;
+```
+
+**Good**
+
+```csharp
+x => …;
+(key, value) => …;
+```
+</details>
+
 ### Coding conventions
 
 <details>
